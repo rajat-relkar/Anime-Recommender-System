@@ -1,0 +1,56 @@
+1. -- Environment Setup
+    python -m venv venv
+    source venv/bin/activate
+    requirements.txt
+
+2. -- Create .env file
+    Inside it, specify groq api key from groq cloud and also mention hugging face token in write mode
+
+3. -- setup.py file
+    To trigger this file, run pip install -e .
+    imp - Inside the required folders create __init__.py file and run again pip install -e . to treat them as package
+
+6. -- src folder
+        - __init__.py
+        - data_loader.py
+            In the data_loader file, load the csv file, process it and create an processed csv file
+        - vector_store.py
+        - prompt_template.py
+        - recommender.py
+
+4. -- utils folder
+        - __init__.py
+
+        - logger.py
+
+        -custom_exception.py
+
+5. -- config
+        - __init__.py
+        - config.py --> loads env variables, specify the model name from the groq cloud
+
+
+8. -- app
+     - __init__.py
+     - app.py -> to run; streamlit run app/app.py
+
+7. -- pipeline
+        - __init__.py
+        - pipeline.py
+        - build_pipeline.py
+
+
+=================== Deployment ====================
+
+1. Setup Dockerfile
+2. llmops-k8s.yaml -> contains Deployment as well as service file seperated by --- 
+3. .gitignore
+
+cmd >>>
+
+    git init
+    create github repo
+
+    git branch -M main
+    git remote add origin https://github.com/rajat-relkar/Anime-Recommender-System.git
+    git push -u origin main

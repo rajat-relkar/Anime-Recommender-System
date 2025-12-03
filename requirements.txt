@@ -1,0 +1,16 @@
+langchain
+langchain-community
+langchain_groq
+chromadb
+streamlit
+pandas
+python-dotenv
+sentence-transformers
+langchain_huggingface
+tensorflow
+torch
+torchvision
+torchaudio
+langchain-core
+langchain-classic
+langchain-chroma
