@@ -184,5 +184,52 @@ Use the SSH option provided to connect to the VM from the browser.
         Now it will ask for github username and password. For password, generate a github token.
          To pull latest changes from github to vm - git pull origin main
 
+        
+--- GCP Firewall setup
+    Got to firewall on Google Cloud
+    Create firewall rule.
+
+--- Build and Deploy your APP on VM
+    ## Point Docker to Minikube
+    eval $(minikube docker-env)
+
+    docker build -t llmops-app:latest .
+
+    To check if image has been built - docker images
+    llmops-app:latest will be visible
+
+    # Below cmd's inject secret keys inside our kubernetes Cluster
+    kubectl create secret generic llmops-secrets \
+    --from-literal=GROQ_API_KEY="" \
+    --from-literal=HUGGINGFACEHUB_API_TOKEN=""
+
+    kubectl apply -f llmops-k8s.yaml
+
+    kubectl get pods
+
+    ### U will see pods runiing
+
+
+    # Do minikube tunnel on one terminal
+
+    minikube tunnel
+
+    # by executing the above cmd, we can access our application from outside too.
+
+
+    # Open another terminal
+
+    kubectl get svc - this will show our llmops-service
+
+    kubectl port-forward svc/llmops-service 8501:80 --address 0.0.0.0
+
+    ## Now copy external ip(written before ssh connect) and :8501 and see ur app there....
+
+
+
+
+
+
+
 
 
